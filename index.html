@@ -206,33 +206,7 @@ body.phone .btn.link{background:none;box-shadow:none;color:var(--ink);font:600 .
   transform:scale(.88) translateY(2px);box-shadow:0 1px 0 rgba(12,24,48,.15);background:#FFF6E9;
 }
 
-/* Турбо-кнопка для телефонов */
-.turbo-rank-pill{background:var(--navy);color:#fff;padding:6px 16px;border-radius:99px;font:700 .92rem var(--display);box-shadow:0 2px 8px rgba(0,0,0,.18);display:inline-flex;align-items:center;gap:6px;margin-bottom:2px}
-.turbo-rank-pill b{color:var(--gold)}
-.turbo-box{width:100%;display:flex;flex-direction:column;align-items:center;gap:14px;margin:6px 0 14px}
-.turbo-btn{
-  width:min(230px,68vw);height:min(230px,68vw);border-radius:50%;border:6px solid #FFF6E9;
-  background:radial-gradient(circle at 35% 35%, #FF9800, #E65100 85%);
-  color:#FFF6E9;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:manipulation;
-  box-shadow:0 12px 32px rgba(230,81,0,.6), inset 0 4px 14px rgba(255,255,255,.5);
-  transition:transform .05s ease, filter .05s ease;
-  animation:turbo-pulse 1.3s ease-in-out infinite;
-}
-.turbo-btn:active, .turbo-btn.active{
-  transform:scale(.9);
-  box-shadow:0 4px 16px rgba(230,81,0,.85), inset 0 2px 8px rgba(255,255,255,.7);
-  filter:brightness(1.22);
-}
-@keyframes turbo-pulse{
-  0%,100%{box-shadow:0 10px 28px rgba(230,81,0,.5), 0 0 0 0 rgba(255,152,0,.4)}
-  50%{box-shadow:0 14px 38px rgba(230,81,0,.75), 0 0 0 14px rgba(255,152,0,0)}
-}
-.turbo-lightning{font-size:clamp(2.5rem,9vw,3.8rem);line-height:1;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
-.turbo-title{font:900 clamp(1.1rem,4.2vw,1.45rem)/1.1 var(--display);margin-top:4px;text-shadow:0 2px 4px rgba(0,0,0,.3)}
-.turbo-sub{font:700 clamp(.7rem,2.6vw,.85rem) var(--body);opacity:.95;margin-top:4px;text-transform:uppercase;letter-spacing:.06em}
-.turbo-meter{width:80%;max-width:220px;height:12px;background:rgba(12,24,48,.18);border:2px solid var(--ink);border-radius:99px;overflow:hidden;position:relative}
-.turbo-bar{height:100%;width:0%;background:linear-gradient(90deg, #FFC83D, #D2562F);border-radius:99px;transition:width .1s linear}
+
 
 .big-place{white-space:nowrap;font:900 7.5rem/1 var(--display);color:var(--track);font-variant-numeric:tabular-nums}
 .ph-conn{position:fixed;left:0;right:0;bottom:0;background:var(--ink);color:var(--chalk);text-align:center;font-size:.85rem;padding:.6em 1em calc(.6em + env(safe-area-inset-bottom,0px))}
@@ -268,7 +242,7 @@ body.phone .btn.link{background:none;box-shadow:none;color:var(--ink);font:600 .
       <div class="seg" role="radiogroup" aria-label="Длина забега">
         <label><input type="radio" name="dur" value="25"><span>Спринт, 25 с</span></label>
         <label><input type="radio" name="dur" value="40" checked><span>Обычный, 40 с</span></label>
-        <label><input type="radio" name="dur" value="60"><span>⚡ Турбо-финал, 60 с</span></label>
+        <label><input type="radio" name="dur" value="60"><span>Долгий 60 с</span></label>
       </div>
     </div>
     <button class="btn" type="submit">Открыть регистрацию</button>
@@ -302,7 +276,7 @@ body.phone .btn.link{background:none;box-shadow:none;color:var(--ink);font:600 .
     <div class="lobby-dur-pills" id="lobby-dur-pills">
       <button type="button" class="dur-pill" data-dur="25">Спринт 25 с</button>
       <button type="button" class="dur-pill active" data-dur="40">Обычный 40 с</button>
-      <button type="button" class="dur-pill" data-dur="60">⚡ Турбо-финал 60 с</button>
+      <button type="button" class="dur-pill" data-dur="60">Долгий 60 с</button>
     </div>
     <button class="btn ghost" id="btn-bots">+ 5 тестовых энергетиков</button>
     <button class="btn" id="btn-start" disabled>Старт (40 с)!</button>
@@ -331,7 +305,7 @@ body.phone .btn.link{background:none;box-shadow:none;color:var(--ink);font:600 .
     <div class="lobby-dur-pills" id="res-dur-pills">
       <button type="button" class="dur-pill" data-dur="25">Спринт 25 с</button>
       <button type="button" class="dur-pill active" data-dur="40">Обычный 40 с</button>
-      <button type="button" class="dur-pill" data-dur="60">⚡ Турбо-финал 60 с</button>
+      <button type="button" class="dur-pill" data-dur="60">Долгий 60 с</button>
     </div>
     <button class="btn" id="btn-again">Ещё забег (40 с)</button>
   </div>
@@ -372,17 +346,6 @@ body.phone .btn.link{background:none;box-shadow:none;color:var(--ink);font:600 .
         <button type="button" class="rx-btn" data-e="🎉">🎉</button>
       </div>
     </div>
-
-    <!-- Турбо-кнопка для забега -->
-    <div class="turbo-box" id="turbo-box" hidden>
-      <button type="button" class="turbo-btn" id="turbo-btn">
-        <span class="turbo-lightning">⚡</span>
-        <span class="turbo-title">ПОДДАЙ ПАРУ!</span>
-        <span class="turbo-sub">Тапай быстрее!</span>
-      </button>
-      <div class="turbo-meter">
-        <div class="turbo-bar" id="turbo-bar"></div>
-      </div>
     </div>
 
     <div class="big-place" id="pw-place" hidden></div>
@@ -2823,17 +2786,6 @@ function hostApp(){
       if(slot&&typeof m.e==='string')showRxEmoji(slot,m.e);
       return;
     }
-    if(m.t==='tap'){
-      if(H.phase!=='race'||H.dur<60)return;
-      var r=null;
-      for(var j=0;j<H.runners.length;j++){if(H.runners[j].id===id){r=H.runners[j];break}}
-      if(r&&!r.done){
-        var taps=Math.min(8,+m.n||1);
-        r.boost=Math.min(3.5,(r.boost||0)+taps*0.25);
-        r.fx='⚡';r.fxUntil=H.t+0.45;
-      }
-      return;
-    }
     if(m.t==='join'){
       var name=cleanName(m.name);if(!name)return;
       var av=okAvatar(m.av)?m.av:null;
@@ -3103,20 +3055,6 @@ function hostApp(){
     if(!r.head)r.head=makeHead(r,R);
     ctx.drawImage(r.head,cx-R,cy-R,R*2,R*2);
     drawHat(cx,cy,R);
-    if(r.boost > 0.1){
-      ctx.save();
-      var bAlpha = Math.min(1, r.boost * 0.55);
-      ctx.fillStyle = "rgba(255, 200, 61, " + (bAlpha * 0.8) + ")";
-      ctx.shadowColor = "#FF9800"; ctx.shadowBlur = 10;
-      for(var si = 0; si < 3; si++){
-        var sparkX = x - tW * (0.6 + si * 0.35) - (Math.random() * R * 0.2);
-        var sparkY = hip - tH * 0.45 + (Math.sin(H.t * 28 + si * 2.2) * R * 0.22);
-        ctx.beginPath();
-        ctx.arc(sparkX, sparkY, Math.max(1.8, R * (0.12 - si * 0.03)), 0, 7);
-        ctx.fill();
-      }
-      ctx.restore();
-    }
     if(H.t<r.fxUntil&&r.fx){
       ctx.font=(R*.7)+'px system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
       ctx.fillText(r.fx,cx+R*1.35,cy-R*.2);
@@ -3222,12 +3160,6 @@ function hostApp(){
             else if(H.t>2&&u<.13){r.target=2.1;r.next=H.t+.9;r.fx='⚡';r.fxUntil=r.next}
             else{r.target=.55+Math.random()*.95;r.next=H.t+.8+Math.random()*1.4}
           }
-
-          if(r.boost>0){
-            r.mult+=Math.min(1.3,r.boost*0.45);
-            r.boost*=Math.max(0,1-dt*3.2);
-            r.fx='⚡';r.fxUntil=H.t+0.35;
-          }
           r.mult+=(r.target-r.mult)*Math.min(1,dt*5);
           var band=1+clamp((mean-r.p)*1.2,-.05,.05);
           r.p+=dt/H.dur*r.mult*band;
@@ -3272,7 +3204,6 @@ function hostApp(){
       setTimeout(function(){step(i+1)},i<3?900:650);
       if(i===3){
         H.phase='race';broadcast();setTimeout(function(){c3.textContent=''},650);
-        if(H.dur>=60) showRaceToast('⚡ ТУРБО-РЕЖИМ АКТИВЕН! ТАПАЙТЕ С ТЕЛЕФОНОВ! ⚡');
       }
     })(0);
   }
@@ -3288,7 +3219,7 @@ function hostApp(){
     pod.textContent='';ol.textContent='';
     var NOMS={
       0:{t:'🥇 Главный генератор Игрополиса',c:'p1'},
-      1:{t:'🥈 Турбо-драйвер вовлечённости',c:'p2'},
+      1:{t:'🥈 Драйвер вовлечённости',c:'p2'},
       2:{t:'🥉 Мастер высокого давления',c:'p3'}
     };
     [[1,'p2'],[0,'p1'],[2,'p3']].forEach(function(o){
@@ -3313,7 +3244,7 @@ function hostApp(){
       if(r.img){var im=new Image();im.alt='';im.src=r.img.src;m.appendChild(im)}else m.textContent=r.emoji||initial(r.name);
       li.appendChild(m);li.appendChild(mk('span','',r.name));
       if(i===0)li.appendChild(mk('span','res-nom-tag','🥇 Главный генератор'));
-      else if(i===1)li.appendChild(mk('span','res-nom-tag','🥈 Турбо-драйвер'));
+      else if(i===1)li.appendChild(mk('span','res-nom-tag','🥈 Драйвер вовлечённости'));
       else if(i===2)li.appendChild(mk('span','res-nom-tag','🥉 Высокое давление'));
       else if(isLast)li.appendChild(mk('span','res-nom-tag','🛡️ Энергосбережение'));
       ol.appendChild(li);
@@ -3387,7 +3318,7 @@ function playerApp(){
     if(st&&st.rank){idx=st.rank.indexOf(me.id);tot=st.rank.length}
     $('#pw-num').textContent=num||'…';$('#pw-who').textContent=me.name;
     preview($('#pw-prev'),num);
-    bib.hidden=false;place.hidden=true;edit.hidden=true;$('#turbo-box').hidden=true;$('#pw-prev').hidden=false;
+    bib.hidden=false;place.hidden=true;edit.hidden=true;$('#pw-prev').hidden=false;
     var rxBox=$('#pw-rx');if(rxBox)rxBox.hidden=true;
     if(ph==='lobby'){
       h.textContent=num?'Ты на старте!':'Записываем тебя…';
@@ -3397,27 +3328,16 @@ function playerApp(){
     }else if(ph==='count'){
       h.textContent='Приготовься!';t.textContent='Смотри на большой экран — заряжаем Игрополис энергией!';
     }else if(ph==='race'){
-      if(idx<0){h.textContent='Забег уже идёт';t.textContent='Ты в списке и побежишь в следующем забеге.';$('#turbo-box').hidden=true}
-      else{
-        var isTurbo = (st && st.dur >= 60);
-        if(isTurbo){
-          h.textContent='ТУРБО-СУПЕР-ЗАБЕГ! ⚡';
-          bib.hidden=true;place.hidden=true;
-          t.textContent='Финальный спринт на 60 с! Тапай изо всех сил — дай энергию своему бегуну!';
-          $('#turbo-box').hidden=false;
-          var rkPill = $('#turbo-rank-num');
-          if(rkPill) rkPill.textContent = (idx+1) + ' из ' + tot;
-          $('#pw-prev').hidden=true;
-        }else{
-          h.textContent='Ты на дистанции!';
-          bib.hidden=true;place.hidden=false;place.textContent=String(idx+1);
-          t.textContent='Смотри на большой экран и болей за команду! (⚡ Турбо-ускорение откроется в супер-забеге на 60 с)';
-          $('#turbo-box').hidden=true;
-          $('#pw-prev').hidden=false;
-        }
+      if(idx<0){
+        h.textContent='Забег уже идёт';
+        t.textContent='Ты в списке и побежишь в следующем забеге.';
+      }else{
+        h.textContent='Ты на дистанции!';
+        bib.hidden=true;place.hidden=false;place.textContent=String(idx+1);
+        t.textContent='Смотри на большой экран и болей за команду!';
+        $('#pw-prev').hidden=false;
       }
     }else if(ph==='done'){
-      $('#turbo-box').hidden=true;
       if(idx<0){h.textContent='Забег закончился';t.textContent='Ты в списке и побежишь в следующем забеге.'}
       else{
         bib.hidden=true;place.hidden=false;place.textContent=String(idx+1);
@@ -3426,7 +3346,7 @@ function playerApp(){
           h.textContent='Главный генератор Игрополиса! 🥇';
           t.textContent='1 место! Уровень вовлечённости — 100%! Иди за кубком!';
         }else if(idx===1){
-          h.textContent='Турбо-драйвер вовлечённости! 🥈';
+          h.textContent='Драйвер вовлечённости! 🥈';
           t.textContent='2 место! Мощнейший командный драйв на всей дистанции!';
         }else if(idx===2){
           h.textContent='Мастер высокого давления! 🥉';
@@ -3498,49 +3418,6 @@ function playerApp(){
   document.querySelectorAll('.rx-btn').forEach(function(btn){
     btn.addEventListener('pointerdown',function(ev){if(ev.cancelable)ev.preventDefault();handleRx(this)});
   });
-
-  /* --- турбо-кнопка --- */
-  var pendingTaps = 0, tapTimer = null, energyVal = 0, lastTapTs = 0;
-  var turboBtn = $('#turbo-btn'), turboBar = $('#turbo-bar');
-  
-  function handleTap(ev){
-    if(ev.cancelable) ev.preventDefault();
-    var now = performance.now();
-    if(now - lastTapTs < 35) return;
-    lastTapTs = now;
-    pendingTaps++;
-    energyVal = Math.min(100, energyVal + 14);
-    if(turboBar) turboBar.style.width = energyVal + '%';
-    if(turboBtn){
-      turboBtn.classList.add('active');
-      setTimeout(function(){ turboBtn.classList.remove('active'); }, 70);
-    }
-    if(navigator.vibrate) try{ navigator.vibrate(10); }catch(e){}
-    if(!tapTimer){
-      tapTimer = setInterval(function(){
-        if(pendingTaps > 0){
-          pub({t:'tap', n:pendingTaps});
-          pendingTaps = 0;
-        } else {
-          clearInterval(tapTimer);
-          tapTimer = null;
-        }
-      }, 160);
-    }
-  }
-  
-  // Медленное затухание полоски энергии
-  setInterval(function(){
-    if(energyVal > 0){
-      energyVal = Math.max(0, energyVal - 4);
-      if(turboBar) turboBar.style.width = energyVal + '%';
-    }
-  }, 100);
-
-  if(turboBtn){
-    turboBtn.addEventListener('pointerdown', handleTap);
-    turboBtn.addEventListener('touchstart', handleTap, {passive: false});
-  }
 
   /* --- анкета --- */
   $('#p-name').value=draft.name;
